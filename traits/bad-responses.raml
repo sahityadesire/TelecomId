@@ -1,0 +1,32 @@
+#%RAML 1.0 Trait
+responses:
+  400:
+    description: Bad request returned when payload validation is failed.
+    body: 
+      application/json: 
+        type: !include ../types/error.raml
+  403:
+    description: No permission to run resource.
+    body:
+      application/json:
+        type: !include ../types/error.raml
+  404:
+    description: Resource not found.
+    body:
+      application/json:
+        type: !include ../types/error.raml
+  408:
+    description: Request Timeout
+    body:
+      application/json:
+        type: !include ../types/error.raml
+  500:
+    description: General server error.
+    body:
+      application/json:
+        type: !include ../types/error.raml
+  504:
+    description: Gateway Timeout
+    body:
+      application/json:
+        type: !include ../types/error.raml

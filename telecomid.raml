@@ -1,0 +1,28 @@
+#%RAML 1.0 Trait
+title: TelecomId
+
+traits:
+  secured: !include exchange_modules/e1e2f712-c943-4adb-9590-00453d1051c0/authorisation/1.0.0/authorisation.raml
+  bad-responses: !include traits/bad-responses.raml
+
+types: 
+  id: !include types/id.raml
+  name: !include types/name.raml
+  phoneNumber: !include types/phoneNumber.raml
+
+/CustomerPhoneNumber:
+is: [secured,bad-responses]
+get:
+    description: Getting the phone numbers of a particular customer
+    queryParameters:
+        CustomerID:
+          description: Customer ID to get the particular telephone number
+          type: string
+          required: true
+          example: 186786
+    responses:
+    200:
+    body:
+    application/json:
+     example: !include /examples/response.raml
+     type: id,name,phoneNumber

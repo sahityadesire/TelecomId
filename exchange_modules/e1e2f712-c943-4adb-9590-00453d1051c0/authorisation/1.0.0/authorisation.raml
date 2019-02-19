@@ -1,0 +1,9 @@
+#%RAML 1.0 Trait
+
+usage:  This trait can be used to apply an Client Id and Secret enforcement using the standard Authorization header to any resources or HTTP methods.
+headers:
+   Authorization: 
+     description: The authentication details to use the Telecom API
+     type: string
+     required: true
+     example: "567899:64321"
